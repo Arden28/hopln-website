@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@import "@fontsource-variable/geist";
+
+@theme inline {
+  --font-sans: 'Geist Variable', system-ui, sans-serif;
+
+  /* Brand */
+  --color-orange:        oklch(0.703 0.185 37.8);
+  --color-orange-bright: oklch(0.78 0.18 37.8);
+  --color-orange-dim:    oklch(0.703 0.185 37.8 / 15%);
+
+  /* Surfaces */
+  --color-base:           #0C0C0C;
+  --color-surface:        #111111;
+  --color-surface-raised: #181818;
+  --color-surface-card:   #1A1A1A;
+
+  /* Text */
+  --color-text-primary:   #F5F5F5;
+  --color-text-secondary: #94A3B8;
+  --color-text-muted:     #64748B;
+
+  /* Lines / borders */
+  --color-line-grid: #1E293B;
+  --color-border:    oklch(1 0 0 / 8%);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-base);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background-color: oklch(0.703 0.185 37.8 / 30%);
+    color: #fff;
+  }
+}
