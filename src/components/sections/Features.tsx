@@ -1,5 +1,5 @@
 "use client";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import {
@@ -82,7 +82,7 @@ const features: {
 ];
 
 // Refined, cinematic easing curves
-const container = {
+const container: Variants = {
   hidden: { opacity: 0 },
   visible: { 
     opacity: 1,
@@ -90,7 +90,7 @@ const container = {
   },
 };
 
-const item = {
+const item: Variants = {
   hidden:  { opacity: 0, y: 30, scale: 0.98 },
   visible: { 
     opacity: 1, 
