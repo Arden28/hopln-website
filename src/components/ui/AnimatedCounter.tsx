@@ -18,7 +18,7 @@ export function AnimatedCounter({ to, suffix = "", prefix = "", duration = 2, cl
 
   useEffect(() => {
     if (!inView) return;
-    const controls = animate(count, to, { duration, ease: [0.25, 0.1, 0.25, 1] });
+    const controls = animate(count, to, { duration, ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number] });
     return controls.stop;
   }, [inView, to, duration, count]);
 

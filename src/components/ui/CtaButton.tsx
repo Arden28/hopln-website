@@ -4,26 +4,23 @@ import { cn } from "@/lib/utils";
 interface CtaButtonProps {
   href?: string;
   onClick?: () => void;
-  variant?: "primary" | "outline" | "ghost";
+  variant?: "primary" | "outline" | "outline-light" | "ghost" | "white";
   size?: "sm" | "md" | "lg";
   children: React.ReactNode;
   className?: string;
 }
 
 export function CtaButton({
-  href,
-  onClick,
-  variant = "primary",
-  size = "md",
-  children,
-  className,
+  href, onClick, variant = "primary", size = "md", children, className,
 }: CtaButtonProps) {
   const base = "inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-200 select-none cursor-pointer";
 
   const variants = {
-    primary: "bg-[var(--color-orange)] text-white hover:bg-[var(--color-orange-bright)] shadow-[0_0_24px_var(--color-orange-dim)]",
-    outline: "border border-[var(--color-border)] text-[var(--color-text-primary)] hover:border-[var(--color-orange)] hover:text-[var(--color-orange)] bg-transparent",
-    ghost:   "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] bg-transparent",
+    primary:       "bg-(--color-orange) text-white hover:bg-(--color-orange-light) shadow-orange",
+    outline:       "border border-(--color-border) text-(--color-text-secondary) hover:border-(--color-orange) hover:text-(--color-orange) bg-transparent",
+    "outline-light":"border border-white/30 text-white hover:bg-white/10 bg-transparent",
+    ghost:         "text-(--color-text-muted) hover:text-(--color-text-primary) bg-transparent",
+    white:         "bg-white text-(--color-orange) hover:bg-white/90 font-bold",
   };
 
   const sizes = {
@@ -34,8 +31,6 @@ export function CtaButton({
 
   const cls = cn(base, variants[variant], sizes[size], className);
 
-  if (href) {
-    return <a href={href} className={cls}>{children}</a>;
-  }
+  if (href) return <a href={href} className={cls}>{children}</a>;
   return <button onClick={onClick} className={cls}>{children}</button>;
 }
